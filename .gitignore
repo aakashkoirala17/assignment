@@ -15,6 +15,10 @@ build/
 *.log
 app.log
 
+# Text-to-SQL pipeline logs (keep directory, ignore runtime files)
+text_to_sql/logs/*.jsonl
+text_to_sql/logs/*.json
+
 # macOS
 .DS_Store
 .AppleDouble
