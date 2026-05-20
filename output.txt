@@ -1,0 +1,1006 @@
+SQL BENCHMARK QUERY RESULTS
+Database: Classic Models (PostgreSQL)
+Generated: Wed May 20 22:25:43 +0545 2026
+Total Questions: 50
+
+============================================================
+Q1. List all products
+============================================================
+SQL:
+SELECT "productCode", "productName", "productLine", "quantityInStock", "buyPrice", "MSRP" FROM products LIMIT 10;
+
+RESULT:
+productCode|productName|productLine|quantityInStock|buyPrice|MSRP
+S10_1678|1969 Harley Davidson Ultimate Chopper|Motorcycles|7933|48.81|95.70
+S10_1949|1952 Alpine Renault 1300|Classic Cars|7305|98.58|214.30
+S10_2016|1996 Moto Guzzi 1100i|Motorcycles|6625|68.99|118.94
+S10_4698|2003 Harley-Davidson Eagle Drag Bike|Motorcycles|5582|91.02|193.66
+S10_4757|1972 Alfa Romeo GTA|Classic Cars|3252|85.68|136.00
+S10_4962|1962 LanciaA Delta 16V|Classic Cars|6791|103.42|147.74
+S12_1099|1968 Ford Mustang|Classic Cars|68|95.34|194.57
+S12_1108|2001 Ferrari Enzo|Classic Cars|3619|95.59|207.80
+S12_1666|1958 Setra Bus|Trucks and Buses|1579|77.90|136.67
+S12_2823|2002 Suzuki XREO|Motorcycles|9997|66.27|150.62
+(10 rows)
+
+
+============================================================
+Q2. Get all customers
+============================================================
+SQL:
+SELECT "customerNumber", "customerName", "city", "country" FROM customers LIMIT 10;
+
+RESULT:
+customerNumber|customerName|city|country
+103|Atelier graphique|Nantes|France
+112|Signal Gift Stores|Las Vegas|USA
+114|Australian Collectors, Co.|Melbourne|Australia
+119|La Rochelle Gifts|Nantes|France
+121|Baane Mini Imports|Stavern|Norway
+124|Mini Gifts Distributors Ltd.|San Rafael|USA
+125|Havel & Zbyszek Co|Warszawa|Poland
+128|Blauer See Auto, Co.|Frankfurt|Germany
+129|Mini Wheels Co.|San Francisco|USA
+131|Land of Toys Inc.|NYC|USA
+(10 rows)
+
+
+============================================================
+Q3. Show all orders
+============================================================
+SQL:
+SELECT "orderNumber", "orderDate", "status", "customerNumber" FROM orders LIMIT 10;
+
+RESULT:
+orderNumber|orderDate|status|customerNumber
+10100|2003-01-06|Shipped|363
+10101|2003-01-09|Shipped|128
+10102|2003-01-10|Shipped|181
+10103|2003-01-29|Shipped|121
+10104|2003-01-31|Shipped|141
+10105|2003-02-11|Shipped|145
+10106|2003-02-17|Shipped|278
+10107|2003-02-24|Shipped|131
+10108|2003-03-03|Shipped|385
+10109|2003-03-10|Shipped|486
+(10 rows)
+
+
+============================================================
+Q4. List all employees
+============================================================
+SQL:
+SELECT "employeeNumber", "firstName", "lastName", "jobTitle" FROM employees;
+
+RESULT:
+employeeNumber|firstName|lastName|jobTitle
+1002|Diane|Murphy|President
+1056|Mary|Patterson|VP Sales
+1076|Jeff|Firrelli|VP Marketing
+1088|William|Patterson|Sales Manager (APAC)
+1102|Gerard|Bondur|Sale Manager (EMEA)
+1143|Anthony|Bow|Sales Manager (NA)
+1165|Leslie|Jennings|Sales Rep
+1166|Leslie|Thompson|Sales Rep
+1188|Julie|Firrelli|Sales Rep
+1216|Steve|Patterson|Sales Rep
+1286|Foon Yue|Tseng|Sales Rep
+1323|George|Vanauf|Sales Rep
+1337|Loui|Bondur|Sales Rep
+1370|Gerard|Hernandez|Sales Rep
+1401|Pamela|Castillo|Sales Rep
+1501|Larry|Bott|Sales Rep
+1504|Barry|Jones|Sales Rep
+1611|Andy|Fixter|Sales Rep
+1612|Peter|Marsh|Sales Rep
+1619|Tom|King|Sales Rep
+1621|Mami|Nishi|Sales Rep
+1625|Yoshimi|Kato|Sales Rep
+1702|Martin|Gerard|Sales Rep
+(23 rows)
+
+
+============================================================
+Q5. Get all offices
+============================================================
+SQL:
+SELECT * FROM offices;
+
+RESULT:
+officeCode|city|phone|addressLine1|addressLine2|state|country|postalCode|territory
+1|San Francisco|+1 650 219 4782|100 Market Street|Suite 300|CA|USA|94080|NA
+2|Boston|+1 215 837 0825|1550 Court Place|Suite 102|MA|USA|02107|NA
+3|NYC|+1 212 555 3000|523 East 53rd Street|apt. 5A|NY|USA|10022|NA
+4|Paris|+33 14 723 4404|43 Rue Jouffroy Dabbans|||France|75017|EMEA
+5|Tokyo|+81 33 224 5000|4-1 Kioicho||Chiyoda-Ku|Japan|102-8578|Japan
+6|Sydney|+61 2 9264 2451|5-11 Wentworth Avenue|Floor #2||Australia|NSW 2010|APAC
+7|London|+44 20 7877 2041|25 Old Broad Street|Level 7||UK|EC2N 1HN|EMEA
+(7 rows)
+
+
+============================================================
+Q6. Show all product lines
+============================================================
+SQL:
+SELECT "productLine", "textDescription" FROM productlines;
+
+RESULT:
+productLine|textDescription
+Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+Motorcycles|Our motorcycles are state of the art replicas of classic as well as contemporary motorcycle legends such as Harley Davidson, Ducati and Vespa. Models contain stunning details such as official logos, rotating wheels, working kickstand, front suspension, gear-shift lever, footbrake lever, and drive chain. Materials used include diecast and plastic. The models range in size from 1:10 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. All models come fully assembled and ready for display in the home or office. Most include a certificate of authenticity.
+Planes|Unique, diecast airplane and helicopter replicas suitable for collections, as well as home, office or classroom decorations. Models contain stunning details such as official logos and insignias, rotating jet engines and propellers, retractable wheels, and so on. Most come fully assembled and with a certificate of authenticity from their manufacturers.
+Ships|The perfect holiday or anniversary gift for executives, clients, friends, and family. These handcrafted model ships are unique, stunning works of art that will be treasured for generations! They come fully assembled and ready for display in the home or office. We guarantee the highest quality, and best value.
+Trains|Model trains are a rewarding hobby for enthusiasts of all ages. Whether you are looking for collectible wooden trains, electric streetcars or locomotives, youwill find a number of great choices for any budget within this category. The interactive aspect of trains makes toy trains perfect for young children. The wooden train sets are ideal for children under the age of 5.
+Trucks and Buses|The Truck and Bus models are realistic replicas of buses and specialized trucks produced from the early 1920s to present. The models range in size from 1:12 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. Materials used include tin, diecast and plastic. All models include a certificate of authenticity from their manufacturers and are a perfect ornament for the home and office.
+Vintage Cars|Our Vintage Car models realistically portray automobiles produced from the early 1900s through the 1940s. Materials used include Bakelite, diecast, plastic and wood. Most of the replicas are in the 1:18 and 1:24 scale sizes, which provide the optimum in detail and accuracy. Prices range from $30.00 up to $180.00 for some special limited edition replicas. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+(7 rows)
+
+
+============================================================
+Q7. List all payments
+============================================================
+SQL:
+SELECT "customerNumber", "checkNumber", "paymentDate", "amount" FROM payments LIMIT 10;
+
+RESULT:
+customerNumber|checkNumber|paymentDate|amount
+103|HQ336336|2004-10-19|6066.78
+103|JM555205|2003-06-05|14571.44
+103|OM314933|2004-12-18|1676.14
+112|BO864823|2004-12-17|14191.12
+112|HQ55022|2003-06-06|32641.98
+112|ND748579|2004-08-20|33347.88
+114|GG31455|2003-05-20|45864.03
+114|MA765515|2004-12-15|82261.22
+114|NP603840|2003-05-31|7565.08
+114|NR27552|2004-03-10|44894.74
+(10 rows)
+
+
+============================================================
+Q8. Get product names and prices
+============================================================
+SQL:
+SELECT "productName", "buyPrice", "MSRP" FROM products ORDER BY "MSRP" DESC LIMIT 10;
+
+RESULT:
+productName|buyPrice|MSRP
+1952 Alpine Renault 1300|98.58|214.30
+2001 Ferrari Enzo|95.59|207.80
+1968 Ford Mustang|95.34|194.57
+2003 Harley-Davidson Eagle Drag Bike|91.02|193.66
+1969 Ford Falcon|83.05|173.02
+1917 Grand Touring Sedan|86.70|170.00
+1992 Ferrari 360 Spider red|77.90|169.34
+1928 Mercedes-Benz SSK|72.56|168.75
+1998 Chrysler Plymouth Prowler|101.51|163.73
+1980s Black Hawk Helicopter|77.27|157.69
+(10 rows)
+
+
+============================================================
+Q9. Get customer names and cities
+============================================================
+SQL:
+SELECT "customerName", "city" FROM customers ORDER BY "customerName" LIMIT 10;
+
+RESULT:
+customerName|city
+Alpha Cognac|Toulouse
+American Souvenirs Inc|New Haven
+Amica Models & Co.|Torino
+ANG Resellers|Madrid
+Anna's Decorations, Ltd|North Sydney
+Anton Designs, Ltd.|Madrid
+Asian Shopping Network, Co|Singapore
+Asian Treasures, Inc.|Cork
+Atelier graphique|Nantes
+Australian Collectables, Ltd|Glen Waverly
+(10 rows)
+
+
+============================================================
+Q10. List employee first and last names
+============================================================
+SQL:
+SELECT "firstName", "lastName" FROM employees ORDER BY "lastName";
+
+RESULT:
+firstName|lastName
+Gerard|Bondur
+Loui|Bondur
+Larry|Bott
+Anthony|Bow
+Pamela|Castillo
+Julie|Firrelli
+Jeff|Firrelli
+Andy|Fixter
+Martin|Gerard
+Gerard|Hernandez
+Leslie|Jennings
+Barry|Jones
+Yoshimi|Kato
+Tom|King
+Peter|Marsh
+Diane|Murphy
+Mami|Nishi
+Mary|Patterson
+Steve|Patterson
+William|Patterson
+Leslie|Thompson
+Foon Yue|Tseng
+George|Vanauf
+(23 rows)
+
+
+============================================================
+Q11. Get all order dates
+============================================================
+SQL:
+SELECT "orderNumber", "orderDate", "requiredDate", "shippedDate" FROM orders LIMIT 10;
+
+RESULT:
+orderNumber|orderDate|requiredDate|shippedDate
+10100|2003-01-06|2003-01-13|2003-01-10
+10101|2003-01-09|2003-01-18|2003-01-11
+10102|2003-01-10|2003-01-18|2003-01-14
+10103|2003-01-29|2003-02-07|2003-02-02
+10104|2003-01-31|2003-02-09|2003-02-01
+10105|2003-02-11|2003-02-21|2003-02-12
+10106|2003-02-17|2003-02-24|2003-02-21
+10107|2003-02-24|2003-03-03|2003-02-26
+10108|2003-03-03|2003-03-12|2003-03-08
+10109|2003-03-10|2003-03-19|2003-03-11
+(10 rows)
+
+
+============================================================
+Q12. Show product vendor list
+============================================================
+SQL:
+SELECT DISTINCT "productVendor" FROM products ORDER BY "productVendor";
+
+RESULT:
+productVendor
+Autoart Studio Design
+Carousel DieCast Legends
+Classic Metal Creations
+Exoto Designs
+Gearbox Collectibles
+Highway 66 Mini Classics
+Min Lin Diecast
+Motor City Art Classics
+Red Start Diecast
+Second Gear Diecast
+Studio M Art Models
+Unimax Art Galleries
+Welly Diecast Productions
+(13 rows)
+
+
+============================================================
+Q13. Get all product codes
+============================================================
+SQL:
+SELECT "productCode", "productName" FROM products LIMIT 10;
+
+RESULT:
+productCode|productName
+S10_1678|1969 Harley Davidson Ultimate Chopper
+S10_1949|1952 Alpine Renault 1300
+S10_2016|1996 Moto Guzzi 1100i
+S10_4698|2003 Harley-Davidson Eagle Drag Bike
+S10_4757|1972 Alfa Romeo GTA
+S10_4962|1962 LanciaA Delta 16V
+S12_1099|1968 Ford Mustang
+S12_1108|2001 Ferrari Enzo
+S12_1666|1958 Setra Bus
+S12_2823|2002 Suzuki XREO
+(10 rows)
+
+
+============================================================
+Q14. List all countries from offices
+============================================================
+SQL:
+SELECT DISTINCT "country" FROM offices ORDER BY "country";
+
+RESULT:
+country
+Australia
+France
+Japan
+UK
+USA
+(5 rows)
+
+
+============================================================
+Q15. Show all order statuses
+============================================================
+SQL:
+SELECT DISTINCT "status" FROM orders;
+
+RESULT:
+status
+Shipped
+In Process
+Disputed
+Cancelled
+Resolved
+On Hold
+(6 rows)
+
+
+============================================================
+Q16. Get all payment amounts
+============================================================
+SQL:
+SELECT "customerNumber", "checkNumber", "paymentDate", "amount" FROM payments ORDER BY "amount" DESC LIMIT 10;
+
+RESULT:
+customerNumber|checkNumber|paymentDate|amount
+141|JE105477|2005-03-18|120166.58
+141|ID10962|2004-12-31|116208.40
+124|KI131716|2003-08-15|111654.40
+148|KM172879|2003-12-26|105743.00
+124|AE215433|2005-03-05|101244.59
+321|DJ15149|2003-11-03|85559.12
+124|BG255406|2004-08-28|85410.87
+167|GN228846|2003-12-03|85024.46
+124|ET64396|2005-04-16|83598.04
+114|MA765515|2004-12-15|82261.22
+(10 rows)
+
+
+============================================================
+Q17. List all job titles
+============================================================
+SQL:
+SELECT DISTINCT "jobTitle" FROM employees ORDER BY "jobTitle";
+
+RESULT:
+jobTitle
+President
+Sale Manager (EMEA)
+Sales Manager (APAC)
+Sales Manager (NA)
+Sales Rep
+VP Marketing
+VP Sales
+(7 rows)
+
+
+============================================================
+Q18. Get customer phone numbers
+============================================================
+SQL:
+SELECT "customerName", "phone" FROM customers ORDER BY "customerName" LIMIT 10;
+
+RESULT:
+customerName|phone
+Alpha Cognac|61.77.6555
+American Souvenirs Inc|2035557845
+Amica Models & Co.|011-4988555
+ANG Resellers|(91) 745 6555
+Anna's Decorations, Ltd|02 9936 8555
+Anton Designs, Ltd.|+34 913 728555
+Asian Shopping Network, Co|+612 9411 1555
+Asian Treasures, Inc.|2967 555
+Atelier graphique|40.32.2555
+Australian Collectables, Ltd|61-9-3844-6555
+(10 rows)
+
+
+============================================================
+Q19. Show product MSRP values
+============================================================
+SQL:
+SELECT "productName", "MSRP" FROM products ORDER BY "MSRP" DESC LIMIT 10;
+
+RESULT:
+productName|MSRP
+1952 Alpine Renault 1300|214.30
+2001 Ferrari Enzo|207.80
+1968 Ford Mustang|194.57
+2003 Harley-Davidson Eagle Drag Bike|193.66
+1969 Ford Falcon|173.02
+1917 Grand Touring Sedan|170.00
+1992 Ferrari 360 Spider red|169.34
+1928 Mercedes-Benz SSK|168.75
+1998 Chrysler Plymouth Prowler|163.73
+1980s Black Hawk Helicopter|157.69
+(10 rows)
+
+
+============================================================
+Q20. List order numbers
+============================================================
+SQL:
+SELECT "orderNumber", "orderDate", "status" FROM orders ORDER BY "orderNumber" LIMIT 10;
+
+RESULT:
+orderNumber|orderDate|status
+10100|2003-01-06|Shipped
+10101|2003-01-09|Shipped
+10102|2003-01-10|Shipped
+10103|2003-01-29|Shipped
+10104|2003-01-31|Shipped
+10105|2003-02-11|Shipped
+10106|2003-02-17|Shipped
+10107|2003-02-24|Shipped
+10108|2003-03-03|Shipped
+10109|2003-03-10|Shipped
+(10 rows)
+
+
+============================================================
+Q21. Get orders with customer names
+============================================================
+SQL:
+SELECT o."orderNumber", o."orderDate", o."status", c."customerName" FROM orders o JOIN customers c ON o."customerNumber" = c."customerNumber" ORDER BY o."orderDate" DESC LIMIT 10;
+
+RESULT:
+orderNumber|orderDate|status|customerName
+10424|2005-05-31|In Process|Euro+ Shopping Channel
+10425|2005-05-31|In Process|La Rochelle Gifts
+10423|2005-05-30|In Process|Petit Auto
+10422|2005-05-30|In Process|Diecast Classics Inc.
+10420|2005-05-29|In Process|Souveniers And Things Co.
+10421|2005-05-29|In Process|Mini Gifts Distributors Ltd.
+10419|2005-05-17|Shipped|Salzburg Collectables
+10418|2005-05-16|Shipped|Extreme Desk Decorations, Ltd
+10417|2005-05-13|Disputed|Euro+ Shopping Channel
+10416|2005-05-10|Shipped|L'ordine Souveniers
+(10 rows)
+
+
+============================================================
+Q22. Get employees with office city
+============================================================
+SQL:
+SELECT e."firstName", e."lastName", e."jobTitle", o."city" AS "officeCity" FROM employees e JOIN offices o ON e."officeCode" = o."officeCode" ORDER BY o."city";
+
+RESULT:
+firstName|lastName|jobTitle|officeCity
+Steve|Patterson|Sales Rep|Boston
+Julie|Firrelli|Sales Rep|Boston
+Larry|Bott|Sales Rep|London
+Barry|Jones|Sales Rep|London
+George|Vanauf|Sales Rep|NYC
+Foon Yue|Tseng|Sales Rep|NYC
+Martin|Gerard|Sales Rep|Paris
+Gerard|Bondur|Sale Manager (EMEA)|Paris
+Loui|Bondur|Sales Rep|Paris
+Gerard|Hernandez|Sales Rep|Paris
+Pamela|Castillo|Sales Rep|Paris
+Anthony|Bow|Sales Manager (NA)|San Francisco
+Leslie|Jennings|Sales Rep|San Francisco
+Diane|Murphy|President|San Francisco
+Leslie|Thompson|Sales Rep|San Francisco
+Jeff|Firrelli|VP Marketing|San Francisco
+Mary|Patterson|VP Sales|San Francisco
+Andy|Fixter|Sales Rep|Sydney
+William|Patterson|Sales Manager (APAC)|Sydney
+Peter|Marsh|Sales Rep|Sydney
+Tom|King|Sales Rep|Sydney
+Yoshimi|Kato|Sales Rep|Tokyo
+Mami|Nishi|Sales Rep|Tokyo
+(23 rows)
+
+
+============================================================
+Q23. Get payments with customer names
+============================================================
+SQL:
+SELECT c."customerName", p."checkNumber", p."paymentDate", p."amount" FROM payments p JOIN customers c ON p."customerNumber" = c."customerNumber" ORDER BY p."amount" DESC LIMIT 10;
+
+RESULT:
+customerName|checkNumber|paymentDate|amount
+Euro+ Shopping Channel|JE105477|2005-03-18|120166.58
+Euro+ Shopping Channel|ID10962|2004-12-31|116208.40
+Mini Gifts Distributors Ltd.|KI131716|2003-08-15|111654.40
+Dragon Souveniers, Ltd.|KM172879|2003-12-26|105743.00
+Mini Gifts Distributors Ltd.|AE215433|2005-03-05|101244.59
+Corporate Gift Ideas Co.|DJ15149|2003-11-03|85559.12
+Mini Gifts Distributors Ltd.|BG255406|2004-08-28|85410.87
+Herkku Gifts|GN228846|2003-12-03|85024.46
+Mini Gifts Distributors Ltd.|ET64396|2005-04-16|83598.04
+Australian Collectors, Co.|MA765515|2004-12-15|82261.22
+(10 rows)
+
+
+============================================================
+Q24. Get order details with product names
+============================================================
+SQL:
+SELECT od."orderNumber", p."productName", od."quantityOrdered", od."priceEach" FROM orderdetails od JOIN products p ON od."productCode" = p."productCode" ORDER BY od."orderNumber" LIMIT 10;
+
+RESULT:
+orderNumber|productName|quantityOrdered|priceEach
+10100|1917 Grand Touring Sedan|30|136.00
+10100|1911 Ford Town Car|50|55.09
+10100|1932 Alfa Romeo 8C2300 Spider Sport|22|75.46
+10100|1936 Mercedes Benz 500k Roadster|49|35.29
+10101|1932 Model A Ford J-Coupe|25|108.06
+10101|1928 Mercedes-Benz SSK|26|167.06
+10101|1939 Chevrolet Deluxe Coupe|45|32.53
+10101|1938 Cadillac V-16 Presidential Limousine|46|44.35
+10102|1937 Lincoln Berline|39|95.55
+10102|1936 Mercedes-Benz 500K Special Roadster|41|43.13
+(10 rows)
+
+
+============================================================
+Q25. Get products with product line description
+============================================================
+SQL:
+SELECT p."productName", p."productLine", pl."textDescription" FROM products p JOIN productlines pl ON p."productLine" = pl."productLine" ORDER BY p."productLine" LIMIT 10;
+
+RESULT:
+productName|productLine|textDescription
+1948 Porsche Type 356 Roadster|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1992 Ferrari 360 Spider red|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1985 Toyota Supra|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1976 Ford Gran Torino|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1969 Dodge Super Bee|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1962 LanciaA Delta 16V|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1968 Ford Mustang|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+2001 Ferrari Enzo|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1982 Camaro Z28|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+1952 Alpine Renault 1300|Classic Cars|Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.
+(10 rows)
+
+
+============================================================
+Q26. Get customers with sales rep names
+============================================================
+SQL:
+SELECT c."customerName", c."country", e."firstName" || ' ' || e."lastName" AS "salesRepName" FROM customers c LEFT JOIN employees e ON c."salesRepEmployeeNumber" = e."employeeNumber" ORDER BY c."customerName" LIMIT 10;
+
+RESULT:
+customerName|country|salesRepName
+Alpha Cognac|France|Gerard Hernandez
+American Souvenirs Inc|USA|Foon Yue Tseng
+Amica Models & Co.|Italy|Pamela Castillo
+ANG Resellers|Spain|
+Anna's Decorations, Ltd|Australia|Andy Fixter
+Anton Designs, Ltd.|Spain|
+Asian Shopping Network, Co|Singapore|
+Asian Treasures, Inc.|Ireland|
+Atelier graphique|France|Gerard Hernandez
+Australian Collectables, Ltd|Australia|Andy Fixter
+(10 rows)
+
+
+============================================================
+Q27. Get orders with customer city
+============================================================
+SQL:
+SELECT o."orderNumber", o."orderDate", o."status", c."customerName", c."city" FROM orders o JOIN customers c ON o."customerNumber" = c."customerNumber" ORDER BY c."city" LIMIT 10;
+
+RESULT:
+orderNumber|orderDate|status|customerName|city
+10281|2004-08-19|Shipped|Diecast Classics Inc.|Allentown
+10272|2004-07-20|Shipped|Diecast Classics Inc.|Allentown
+10422|2005-05-30|In Process|Diecast Classics Inc.|Allentown
+10318|2004-11-02|Shipped|Diecast Classics Inc.|Allentown
+10314|2004-10-22|Shipped|Heintze Collectables|Århus
+10161|2003-10-17|Shipped|Heintze Collectables|Århus
+10202|2003-12-02|Shipped|GiftsForHim.com|Auckland
+10260|2004-06-16|Cancelled|GiftsForHim.com|Auckland
+10138|2003-07-07|Shipped|Kelly's Gift Shop|Auckland
+10179|2003-11-11|Cancelled|Kelly's Gift Shop|Auckland
+(10 rows)
+
+
+============================================================
+Q28. Get employees and their manager
+============================================================
+SQL:
+SELECT emp."employeeNumber", emp."firstName" || ' ' || emp."lastName" AS "employeeName", emp."jobTitle", mgr."firstName" || ' ' || mgr."lastName" AS "managerName" FROM employees emp LEFT JOIN employees mgr ON emp."reportsTo" = mgr."employeeNumber" ORDER BY emp."employeeNumber";
+
+RESULT:
+employeeNumber|employeeName|jobTitle|managerName
+1002|Diane Murphy|President|
+1056|Mary Patterson|VP Sales|Diane Murphy
+1076|Jeff Firrelli|VP Marketing|Diane Murphy
+1088|William Patterson|Sales Manager (APAC)|Mary Patterson
+1102|Gerard Bondur|Sale Manager (EMEA)|Mary Patterson
+1143|Anthony Bow|Sales Manager (NA)|Mary Patterson
+1165|Leslie Jennings|Sales Rep|Anthony Bow
+1166|Leslie Thompson|Sales Rep|Anthony Bow
+1188|Julie Firrelli|Sales Rep|Anthony Bow
+1216|Steve Patterson|Sales Rep|Anthony Bow
+1286|Foon Yue Tseng|Sales Rep|Anthony Bow
+1323|George Vanauf|Sales Rep|Anthony Bow
+1337|Loui Bondur|Sales Rep|Gerard Bondur
+1370|Gerard Hernandez|Sales Rep|Gerard Bondur
+1401|Pamela Castillo|Sales Rep|Gerard Bondur
+1501|Larry Bott|Sales Rep|Gerard Bondur
+1504|Barry Jones|Sales Rep|Gerard Bondur
+1611|Andy Fixter|Sales Rep|William Patterson
+1612|Peter Marsh|Sales Rep|William Patterson
+1619|Tom King|Sales Rep|William Patterson
+1621|Mami Nishi|Sales Rep|Mary Patterson
+1625|Yoshimi Kato|Sales Rep|Mami Nishi
+1702|Martin Gerard|Sales Rep|Gerard Bondur
+(23 rows)
+
+
+============================================================
+Q29. Get orderdetails with product vendor
+============================================================
+SQL:
+SELECT od."orderNumber", p."productName", p."productVendor", od."quantityOrdered", od."priceEach" FROM orderdetails od JOIN products p ON od."productCode" = p."productCode" ORDER BY p."productVendor" LIMIT 10;
+
+RESULT:
+orderNumber|productName|productVendor|quantityOrdered|priceEach
+10107|1997 BMW R 1100 S|Autoart Studio Design|25|96.92
+10110|1932 Model A Ford J-Coupe|Autoart Studio Design|33|115.69
+10106|1900s Vintage Bi-Plane|Autoart Studio Design|49|65.77
+10106|1937 Horch 930V Limousine|Autoart Studio Design|31|55.89
+10108|1968 Ford Mustang|Autoart Studio Design|33|165.38
+10108|2002 Yamaha YZR M1|Autoart Studio Design|34|74.85
+10103|1962 Volkswagen Microbus|Autoart Studio Design|36|107.34
+10105|The Schooner Bluenose|Autoart Studio Design|41|54.00
+10101|1932 Model A Ford J-Coupe|Autoart Studio Design|25|108.06
+10114|1962 Volkswagen Microbus|Autoart Studio Design|21|102.23
+(10 rows)
+
+
+============================================================
+Q30. Get payments with customer country
+============================================================
+SQL:
+SELECT c."customerName", c."country", p."amount", p."paymentDate" FROM payments p JOIN customers c ON p."customerNumber" = c."customerNumber" ORDER BY c."country" LIMIT 10;
+
+RESULT:
+customerName|country|amount|paymentDate
+Anna's Decorations, Ltd|Australia|41554.73|2003-09-28
+Souveniers And Things Co.|Australia|24013.52|2003-08-03
+Anna's Decorations, Ltd|Australia|27083.78|2005-02-09
+Anna's Decorations, Ltd|Australia|38547.19|2003-11-13
+Anna's Decorations, Ltd|Australia|29848.52|2005-04-30
+Australian Collectors, Co.|Australia|45864.03|2003-05-20
+Australian Collectors, Co.|Australia|82261.22|2004-12-15
+Australian Collectors, Co.|Australia|7565.08|2003-05-31
+Australian Collectors, Co.|Australia|44894.74|2004-03-10
+Souveniers And Things Co.|Australia|35806.73|2004-08-02
+(10 rows)
+
+
+============================================================
+Q31. Count customers per country
+============================================================
+SQL:
+SELECT "country", COUNT(*) AS "customerCount" FROM customers GROUP BY "country" ORDER BY "customerCount" DESC;
+
+RESULT:
+country|customerCount
+USA|36
+Germany|13
+France|12
+Spain|7
+UK|5
+Australia|5
+Italy|4
+New Zealand|4
+Switzerland|3
+Singapore|3
+Canada|3
+Finland|3
+Ireland|2
+Japan|2
+Denmark|2
+Portugal|2
+Sweden|2
+Belgium|2
+Austria|2
+Norway  |2
+Russia|1
+Norway|1
+Israel|1
+South Africa|1
+Philippines|1
+Poland|1
+Hong Kong|1
+Netherlands|1
+(28 rows)
+
+
+============================================================
+Q32. Total payments per customer
+============================================================
+SQL:
+SELECT c."customerName", SUM(p."amount") AS "totalPaid" FROM payments p JOIN customers c ON p."customerNumber" = c."customerNumber" GROUP BY c."customerName" ORDER BY "totalPaid" DESC LIMIT 10;
+
+RESULT:
+customerName|totalPaid
+Euro+ Shopping Channel|715738.98
+Mini Gifts Distributors Ltd.|584188.24
+Australian Collectors, Co.|180585.07
+Muscle Machine Inc|177913.95
+Dragon Souveniers, Ltd.|156251.03
+Down Under Souveniers, Inc|154622.08
+AV Stores, Co.|148410.09
+Anna's Decorations, Ltd|137034.22
+Corporate Gift Ideas Co.|132340.78
+Saveley & Henriot, Co.|130305.35
+(10 rows)
+
+
+============================================================
+Q33. Number of orders per status
+============================================================
+SQL:
+SELECT "status", COUNT(*) AS "orderCount" FROM orders GROUP BY "status" ORDER BY "orderCount" DESC;
+
+RESULT:
+status|orderCount
+Shipped|303
+In Process|6
+Cancelled|6
+Resolved|4
+On Hold|4
+Disputed|3
+(6 rows)
+
+
+============================================================
+Q34. Products per product line
+============================================================
+SQL:
+SELECT "productLine", COUNT(*) AS "productCount" FROM products GROUP BY "productLine" ORDER BY "productCount" DESC;
+
+RESULT:
+productLine|productCount
+Classic Cars|38
+Vintage Cars|24
+Motorcycles|13
+Planes|12
+Trucks and Buses|11
+Ships|9
+Trains|3
+(7 rows)
+
+
+============================================================
+Q35. Employees per office
+============================================================
+SQL:
+SELECT o."city", o."country", COUNT(e."employeeNumber") AS "employeeCount" FROM offices o LEFT JOIN employees e ON o."officeCode" = e."officeCode" GROUP BY o."officeCode", o."city", o."country" ORDER BY "employeeCount" DESC;
+
+RESULT:
+city|country|employeeCount
+San Francisco|USA|6
+Paris|France|5
+Sydney|Australia|4
+NYC|USA|2
+London|UK|2
+Boston|USA|2
+Tokyo|Japan|2
+(7 rows)
+
+
+============================================================
+Q36. Total stock per product vendor
+============================================================
+SQL:
+SELECT "productVendor", SUM("quantityInStock") AS "totalStock" FROM products GROUP BY "productVendor" ORDER BY "totalStock" DESC;
+
+RESULT:
+productVendor|totalStock
+Gearbox Collectibles|60495
+Min Lin Diecast|50089
+Classic Metal Creations|45408
+Welly Diecast Productions|45095
+Exoto Designs|44166
+Motor City Art Classics|43105
+Second Gear Diecast|42865
+Studio M Art Models|42253
+Carousel DieCast Legends|40805
+Unimax Art Galleries|38191
+Highway 66 Mini Classics|37520
+Red Start Diecast|35046
+Autoart Studio Design|30093
+(13 rows)
+
+
+============================================================
+Q37. Average buy price per product line
+============================================================
+SQL:
+SELECT "productLine", ROUND(AVG("buyPrice"), 2) AS "avgBuyPrice" FROM products GROUP BY "productLine" ORDER BY "avgBuyPrice" DESC;
+
+RESULT:
+productLine|avgBuyPrice
+Classic Cars|64.45
+Trucks and Buses|56.33
+Motorcycles|50.69
+Planes|49.63
+Ships|47.01
+Vintage Cars|46.07
+Trains|43.92
+(7 rows)
+
+
+============================================================
+Q38. Orders per customer
+============================================================
+SQL:
+SELECT c."customerName", COUNT(o."orderNumber") AS "totalOrders" FROM customers c LEFT JOIN orders o ON c."customerNumber" = o."customerNumber" GROUP BY c."customerName" ORDER BY "totalOrders" DESC LIMIT 10;
+
+RESULT:
+customerName|totalOrders
+Euro+ Shopping Channel|26
+Mini Gifts Distributors Ltd.|17
+Danish Wholesale Imports|5
+Dragon Souveniers, Ltd.|5
+Down Under Souveniers, Inc|5
+Reims Collectables|5
+Australian Collectors, Co.|5
+Volvo Model Replicas, Co|4
+Anna's Decorations, Ltd|4
+La Rochelle Gifts|4
+(10 rows)
+
+
+============================================================
+Q39. Max MSRP per product line
+============================================================
+SQL:
+SELECT "productLine", MAX("MSRP") AS "maxMSRP" FROM products GROUP BY "productLine" ORDER BY "maxMSRP" DESC;
+
+RESULT:
+productLine|maxMSRP
+Classic Cars|214.30
+Motorcycles|193.66
+Vintage Cars|170.00
+Planes|157.69
+Trucks and Buses|136.67
+Ships|122.89
+Trains|100.84
+(7 rows)
+
+
+============================================================
+Q40. Min buy price per vendor
+============================================================
+SQL:
+SELECT "productVendor", MIN("buyPrice") AS "minBuyPrice" FROM products GROUP BY "productVendor" ORDER BY "minBuyPrice" ASC LIMIT 10;
+
+RESULT:
+productVendor|minBuyPrice
+Carousel DieCast Legends|15.91
+Second Gear Diecast|16.24
+Classic Metal Creations|20.61
+Red Start Diecast|21.75
+Motor City Art Classics|22.57
+Studio M Art Models|23.14
+Gearbox Collectibles|24.14
+Welly Diecast Productions|24.23
+Autoart Studio Design|26.30
+Highway 66 Mini Classics|32.37
+(10 rows)
+
+
+============================================================
+Q41. Total number of customers
+============================================================
+SQL:
+SELECT COUNT(*) AS "totalCustomers" FROM customers;
+
+RESULT:
+totalCustomers
+122
+(1 row)
+
+
+============================================================
+Q42. Total number of products
+============================================================
+SQL:
+SELECT COUNT(*) AS "totalProducts" FROM products;
+
+RESULT:
+totalProducts
+110
+(1 row)
+
+
+============================================================
+Q43. Total revenue from payments
+============================================================
+SQL:
+SELECT ROUND(SUM("amount"), 2) AS "totalRevenue" FROM payments;
+
+RESULT:
+totalRevenue
+8853839.23
+(1 row)
+
+
+============================================================
+Q44. Average product price
+============================================================
+SQL:
+SELECT ROUND(AVG("buyPrice"), 2) AS "avgBuyPrice", ROUND(AVG("MSRP"), 2) AS "avgMSRP" FROM products;
+
+RESULT:
+avgBuyPrice|avgMSRP
+54.40|100.44
+(1 row)
+
+
+============================================================
+Q45. Max payment amount
+============================================================
+SQL:
+SELECT MAX("amount") AS "maxPayment" FROM payments;
+
+RESULT:
+maxPayment
+120166.58
+(1 row)
+
+
+============================================================
+Q46. Min payment amount
+============================================================
+SQL:
+SELECT MIN("amount") AS "minPayment" FROM payments;
+
+RESULT:
+minPayment
+615.45
+(1 row)
+
+
+============================================================
+Q47. Count total orders
+============================================================
+SQL:
+SELECT COUNT(*) AS "totalOrders" FROM orders;
+
+RESULT:
+totalOrders
+326
+(1 row)
+
+
+============================================================
+Q48. Total quantity in stock
+============================================================
+SQL:
+SELECT SUM("quantityInStock") AS "totalStockUnits" FROM products;
+
+RESULT:
+totalStockUnits
+555131
+(1 row)
+
+
+============================================================
+Q49. Average MSRP
+============================================================
+SQL:
+SELECT ROUND(AVG("MSRP"), 2) AS "avgMSRP" FROM products;
+
+RESULT:
+avgMSRP
+100.44
+(1 row)
+
+
+============================================================
+Q50. Number of employees
+============================================================
+SQL:
+SELECT COUNT(*) AS "totalEmployees" FROM employees;
+
+RESULT:
+totalEmployees
+23
+(1 row)
+
