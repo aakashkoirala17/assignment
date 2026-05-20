@@ -7,7 +7,7 @@ Visit http://localhost:8000/docs for interactive Swagger UI.
 
 from fastapi import FastAPI
 from logger import get_logger
-from routers import customers, stats
+from routers import customers, stats, agent
 
 logger = get_logger(__name__)
 
@@ -30,8 +30,9 @@ app = FastAPI(
 # ── Register routers ──────────────────────────────────────────────────────────
 app.include_router(customers.router)
 app.include_router(stats.router)
+app.include_router(agent.router)
 
-logger.info("Classic Models API started — routers registered: /customers, /stats")
+logger.info("Classic Models API started — routers registered: /customers, /stats, /agent")
 
 
 # ── Health check ──────────────────────────────────────────────────────────────

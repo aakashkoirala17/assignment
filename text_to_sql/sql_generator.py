@@ -1,7 +1,7 @@
 """
 text_to_sql/sql_generator.py
 =============================
-LLM-based SQL Generator using Google Gemini.
+LLM-based SQL Generator using Google Gemini (google-genai SDK).
 
 Uses a two-prompt strategy:
   Prompt 1 (generate): Convert a natural language question to SQL
@@ -13,15 +13,17 @@ model knows exactly which tables, columns, and relationships exist.
 
 import os
 import re
-import google.generativeai as genai
+import time
+from google import genai
+from google.genai import errors
 from dotenv import load_dotenv
 
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-# Configure Gemini
-genai.configure(api_key=os.getenv("GEMINI_API_KEY", ""))
+# Initialise Gemini client
+_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY", ""))
 
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-2.5-flash-lite"
 
 # ── Database Schema Context ──────────────────────────────────────────────────
 # Injected into every prompt so the model knows the exact schema.
@@ -154,11 +156,30 @@ Corrected SQL:"""
 
 def _clean_sql(raw: str) -> str:
     """Strip markdown fences and extra whitespace from LLM output."""
-    # Remove ```sql ... ``` or ``` ... ``` blocks
     raw = re.sub(r"```(?:sql)?", "", raw, flags=re.IGNORECASE)
     raw = raw.strip().strip("`").strip()
     return raw
 
+
+def _call_gemini_with_retry(prompt: str) -> str:
+    """Helper to call Gemini with exponential backoff for 429/503 errors."""
+    max_retries = 5
+    base_wait = 5.0
+    
+    for attempt in range(max_retries):
+        try:
+            response = _client.models.generate_content(
+                model=MODEL_NAME,
+                contents=prompt,
+            )
+            return response.text
+        except errors.APIError as e:
+            if e.code in (429, 503) and attempt < max_retries - 1:
+                wait_time = base_wait * (2 ** attempt)
+                print(f"\\n[Rate Limit {e.code}] Waiting {wait_time}s before retry...", end="", flush=True)
+                time.sleep(wait_time)
+            else:
+                raise
 
 def generate_sql(question: str) -> str:
     """
@@ -169,9 +190,8 @@ def generate_sql(question: str) -> str:
         schema=SCHEMA_CONTEXT,
         question=question,
     )
-    model = genai.GenerativeModel(MODEL_NAME)
-    response = model.generate_content(prompt)
-    return _clean_sql(response.text)
+    text = _call_gemini_with_retry(prompt)
+    return _clean_sql(text)
 
 
 def fix_sql(sql: str, error: str) -> str:
@@ -184,6 +204,5 @@ def fix_sql(sql: str, error: str) -> str:
         sql=sql,
         error=error,
     )
-    model = genai.GenerativeModel(MODEL_NAME)
-    response = model.generate_content(prompt)
-    return _clean_sql(response.text)
+    text = _call_gemini_with_retry(prompt)
+    return _clean_sql(text)
