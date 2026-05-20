@@ -68,11 +68,12 @@ Open your browser at:
 
 ## Task 1 Deliverables
 
-| File | Description |
-| :--- | :--- |
-| [GROUND_TRUTH_QUERIES.md](GROUND_TRUTH_QUERIES.md) | 50 natural language questions with hand-written SQL queries and explanations |
-| [output.txt](output.txt) | Verified execution results for all 50 queries run against the live database |
-| [EVALUATION_STRATEGY.md](EVALUATION_STRATEGY.md) | Proposed framework for evaluating a Text-to-SQL agent system |
+| File | Task | Description |
+| :--- | :--- | :--- |
+| [GROUND_TRUTH_QUERIES.md](GROUND_TRUTH_QUERIES.md) | Task 1 Part 1 | 50 natural language questions with hand-written SQL queries and explanations |
+| [output.txt](output.txt) | Task 1 Part 1 | Verified execution results for all 50 queries run against the live database |
+| [EVALUATION_STRATEGY.md](EVALUATION_STRATEGY.md) | Task 1 Part 2 | Proposed framework for evaluating a Text-to-SQL agent system |
+| [QUERY_DECOMPOSITION.md](QUERY_DECOMPOSITION.md) | Task 2 | Structured decomposition of all 50 questions (Intent, Tables, Columns, Filters, Joins) |
 
 ---
 
