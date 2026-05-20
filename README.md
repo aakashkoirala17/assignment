@@ -18,14 +18,20 @@ A layered FastAPI application built on top of the Classic Models PostgreSQL data
 ├── models/                     # SQLAlchemy ORM table definitions
 ├── schemas/                    # Pydantic request/response models
 ├── crud/                       # Database query logic (CRUD layer)
-├── routers/                    # FastAPI route handlers
-│   ├── customers.py
-│   └── stats.py
-│
 ├── GROUND_TRUTH_QUERIES.md     # Task 1 Part 1: All 50 benchmark SQL queries
 ├── EVALUATION_STRATEGY.md      # Task 1 Part 2: Evaluation framework design
-├── output.txt                  # Query execution results (50 queries verified)
+├── QUERY_DECOMPOSITION.md      # Task 2: Structured decomposition of questions
 │
+├── text_to_sql/                # Task 3 & 4: Text-to-SQL Pipeline & AI Agent
+│   ├── ARCHITECTURE.md         # Detailed design docs for the pipeline
+│   ├── pipeline.py             # Task 3 Core pipeline
+│   ├── benchmark.py            # Task 3 Automated evaluator
+│   └── agent.py                # Task 4 SQL Agent logic with retries
+│
+├── routers/                    # FastAPI route handlers
+│   ├── customers.py
+│   ├── stats.py
+│   └── agent.py                # Task 4 Agent POST endpoint
 ├── PYTHON_COMMANDS.md          # Setup guide: venv, pip, uvicorn
 ├── DOCKER_COMMANDS.md          # Setup guide: docker-compose, psql
 └── POSTGRES_COMMANDS.md        # PostgreSQL query reference
@@ -66,14 +72,18 @@ Open your browser at:
 
 ---
 
-## Task 1 Deliverables
+## Deliverables
 
-| File | Task | Description |
+| File/Module | Task | Description |
 | :--- | :--- | :--- |
-| [GROUND_TRUTH_QUERIES.md](GROUND_TRUTH_QUERIES.md) | Task 1 Part 1 | 50 natural language questions with hand-written SQL queries and explanations |
-| [output.txt](output.txt) | Task 1 Part 1 | Verified execution results for all 50 queries run against the live database |
-| [EVALUATION_STRATEGY.md](EVALUATION_STRATEGY.md) | Task 1 Part 2 | Proposed framework for evaluating a Text-to-SQL agent system |
-| [QUERY_DECOMPOSITION.md](QUERY_DECOMPOSITION.md) | Task 2 | Structured decomposition of all 50 questions (Intent, Tables, Columns, Filters, Joins) |
+| `GROUND_TRUTH_QUERIES.md` | Task 1 | 50 natural language questions with hand-written SQL queries |
+| `EVALUATION_STRATEGY.md` | Task 1 | Proposed framework for evaluating a Text-to-SQL agent system |
+| `QUERY_DECOMPOSITION.md` | Task 2 | Structured decomposition of all 50 questions |
+| `text_to_sql/ARCHITECTURE.md` | Task 3 | Design docs for the Text-to-SQL pipeline layers |
+| `text_to_sql/` module | Task 3 | The fully automated, LLM-powered SQL generation & execution pipeline |
+| `text_to_sql/benchmark.py` | Task 3 | Benchmark runner outputting metrics to `logs/benchmark_report.json` |
+| `text_to_sql/agent.py` | Task 4 | Core agent loop (Decompose → Generate → Execute → Retry → Summarize) |
+| `routers/agent.py` | Task 4 | `POST /agent/sql` FastAPI endpoint exposing the mini SQL agent |
 
 ---
 

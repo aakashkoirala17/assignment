@@ -18,7 +18,7 @@ from google import genai
 from google.genai import errors
 from dotenv import load_dotenv
 
-load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
+load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"), override=True)
 
 # Initialise Gemini client
 _client = genai.Client(api_key=os.getenv("GEMINI_API_KEY", ""))

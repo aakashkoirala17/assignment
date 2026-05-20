@@ -30,3 +30,7 @@ text_to_sql/logs/*.json
 
 # Docker volumes (local only)
 postgres_data/
+
+# Submission / Assignment Summaries
+*.pdf
+*.docx
